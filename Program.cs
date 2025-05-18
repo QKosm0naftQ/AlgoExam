@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AlgoExam.Algorithm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace AlgoExam
     {
         static void Main(string[] args)
         {
+            Selection_sort selection_Sort = new Selection_sort();
+
             Console.Write("Enter the lenth of your array: ");
             int length;
 
@@ -35,13 +38,14 @@ namespace AlgoExam
 
             Random rand = new Random();
 
-            foreach (int[] array in arrays.Values) 
+            foreach (int[] array in arrays.Values)
             {
-                for (int i = 0; i < length; i++) 
+                for (int i = 0; i < length; i++)
                 {
                     array[i] = rand.Next(0, 1000);
                 }
             }
+
             Console.Write("Podaj maksymalną długość tablicy (MAX): ");
             int maxLength;
             while (!int.TryParse(Console.ReadLine(), out maxLength) || maxLength < 3)
@@ -139,28 +143,28 @@ namespace AlgoExam
         {
             if (low < high)
             {
-               int pivotIndex = Partition(array, low, high, ref operationCount);
-            //  return i + 1     (Partition)
+                int pivotIndex = Partition(array, low, high, ref operationCount);
+                //  return i + 1     (Partition)
                 QuickSort(array, low, pivotIndex - 1, ref operationCount);
-            //  QuickSort(array, 0, 1, ref count) левая часть
-            //  Массив: [4, 3]
-            //  pivot = 3
-            //  i = -1
-            //  | j | array\[j] | < pivot? | i  | Действие | array          |
-            //  | - | --------- | -------- | -- | -------- | -------------- |
-            //  | 0 | 4         | ❌       | -1 | —        | \[4, 3, 5,...] |
-            //  Swap(i + 1 = 0, high = 1) → Swap(0, 1)
-            //  Массив: [3, 4, 5, 8, 7]
+                //  QuickSort(array, 0, 1, ref count) левая часть
+                //  Массив: [4, 3]
+                //  pivot = 3
+                //  i = -1
+                //  | j | array\[j] | < pivot? | i  | Действие | array          |
+                //  | - | --------- | -------- | -- | -------- | -------------- |
+                //  | 0 | 4         | ❌       | -1 | —        | \[4, 3, 5,...] |
+                //  Swap(i + 1 = 0, high = 1) → Swap(0, 1)
+                //  Массив: [3, 4, 5, 8, 7]
                 QuickSort(array, pivotIndex + 1, high, ref operationCount);
-            //  QuickSort(array, 3, 4, ref count)  // правая часть
-            //  Массив: [8, 7]
-            //  pivot = 7
-            //  i = 2
-            //  | j | array\[j] | < pivot? | i | Действие | array            |
-            //  | - | --------- | -------- | - | -------- | ---------------- |
-            //  | 3 | 8         | ❌        | 2 | —        | \[3, 4, 5, 8, 7] |
-            //  Swap(i+1 = 3, high = 4) → Swap(3, 4)
-            // Итоговый массив: [3, 4, 5, 7, 8]
+                //  QuickSort(array, 3, 4, ref count)  // правая часть
+                //  Массив: [8, 7]
+                //  pivot = 7
+                //  i = 2
+                //  | j | array\[j] | < pivot? | i | Действие | array            |
+                //  | - | --------- | -------- | - | -------- | ---------------- |
+                //  | 3 | 8         | ❌        | 2 | —        | \[3, 4, 5, 8, 7] |
+                //  Swap(i+1 = 3, high = 4) → Swap(3, 4)
+                // Итоговый массив: [3, 4, 5, 7, 8]
             }
         }
 
@@ -168,12 +172,12 @@ namespace AlgoExam
         {
             int pivot = array[high];//pivot = 5
             int i = low - 1;//i = -1
-            // | j | array[j] | array[j] < pivot? | i  | Действие  | array            |
-            // | - | -------- | ------------------| -- | --------- | ---------------- |
-            // | 0 | 8         | ❌ нет           | -1 | —         | \[8, 4, 7, 3, 5] |
-            // | 1 | 4         | ✅ да            | 0  | Swap(0,1) | \[4, 8, 7, 3, 5] |
-            // | 2 | 7         | ❌ нет           | 0  | —         | \[4, 8, 7, 3, 5] |
-            // | 3 | 3         | ✅ да            | 1  | Swap(1,3) | \[4, 3, 7, 8, 5] |
+                            // | j | array[j] | array[j] < pivot? | i  | Действие  | array            |
+                            // | - | -------- | ------------------| -- | --------- | ---------------- |
+                            // | 0 | 8         | ❌ нет           | -1 | —         | \[8, 4, 7, 3, 5] |
+                            // | 1 | 4         | ✅ да            | 0  | Swap(0,1) | \[4, 8, 7, 3, 5] |
+                            // | 2 | 7         | ❌ нет           | 0  | —         | \[4, 8, 7, 3, 5] |
+                            // | 3 | 3         | ✅ да            | 1  | Swap(1,3) | \[4, 3, 7, 8, 5] |
             for (int j = low; j < high; j++)
             {
                 operationCount++; // сравнение
@@ -197,13 +201,14 @@ namespace AlgoExam
             array[j] = temp;
         }
 
-        static void PrintArray(int[] array)
+        static void printarray(int[] array)
         {
             foreach (int num in array)
             {
-                Console.Write(num + " ");
+                console.write(num + " ");
             }
-            Console.WriteLine();
+            console.writeline();
         }
+    }
     }
 }
