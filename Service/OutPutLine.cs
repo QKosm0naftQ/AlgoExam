@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgoExam
+namespace AlgoExam.Service
 {
-    internal class Program
+    internal class OutPutLine
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }

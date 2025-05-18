@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgoExam
+namespace AlgoExam.Interface
 {
-    internal class Program
+    internal interface ISortService
     {
-        static void Main(string[] args)
-        {
 
-        }
     }
 }
