@@ -9,5 +9,9 @@ namespace AlgoExam.Algorithm
 {
     internal class Quick_sort : ISortService
     {
+        public SortResult Sort(int[] array)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

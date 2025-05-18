@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace AlgoExam.Interface
 {
-    internal interface ISortService
+    public interface ISortService
     {
-
+        SortResult Sort(int[] array);
     }
 }
