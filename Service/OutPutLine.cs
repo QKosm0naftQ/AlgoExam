@@ -16,16 +16,16 @@ namespace AlgoExam.Service
         }
         public void PrintTable()
         {
-            Console.WriteLine("+----------------------+---------------------+----------------------+");
-            Console.WriteLine("|   Algorithm Name     |   Operation Count   |     Time (ms)        |");
-            Console.WriteLine("+----------------------+---------------------+----------------------+");
+            Console.WriteLine("+--------------------------+-----------------------+----------------------+");
+            Console.WriteLine("|   Algorithm Name         |   Operation Count     |     Time (ms)        |");
+            Console.WriteLine("+--------------------------+-----------------------+----------------------+");
 
             foreach (var result in _sortResults)
             {
-                Console.WriteLine($"| {result.AlgorithmName,-20} | {result.OperationCount,19} | {result.ElapsedMilliseconds,20:F3} |");
+                Console.WriteLine($"| {result.AlgorithmName,-24} | {result.OperationCount,21} | {result.ElapsedMilliseconds,17:F3} ms |");
             }
 
-            Console.WriteLine("+----------------------+---------------------+----------------------+");
+            Console.WriteLine("+--------------------------+-----------------------+----------------------+");
         }
     }
 }
