@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lb_inputUserMaxNum = new System.Windows.Forms.Label();
             this.bt_start = new System.Windows.Forms.Button();
             this.cb_BubbleSort = new System.Windows.Forms.CheckBox();
@@ -112,16 +112,17 @@
             // 
             // chart_result
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart_result.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_result.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart_result.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_result.Legends.Add(legend1);
             this.chart_result.Location = new System.Drawing.Point(12, 172);
             this.chart_result.Name = "chart_result";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart_result.Series.Add(series2);
+            this.chart_result.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart_result.Series.Add(series1);
             this.chart_result.Size = new System.Drawing.Size(739, 396);
             this.chart_result.TabIndex = 7;
             this.chart_result.Text = "Chart";
@@ -170,6 +171,7 @@
             this.Controls.Add(this.cb_BubbleSort);
             this.Controls.Add(this.bt_start);
             this.Controls.Add(this.lb_inputUserMaxNum);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.chart_result)).EndInit();

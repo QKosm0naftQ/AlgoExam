@@ -22,10 +22,19 @@ namespace WinFormProject
         {
             InitializeComponent();
             results = new List<SortResult>();
-            this.cb_styleChart.Items.Add("Лінійний");
-            this.cb_styleChart.Items.Add("Стовпчиковий");
-            this.cb_styleChart.Items.Add("Точковий");
-            this.cb_styleChart.Items.Add("Гістограма");
+            string[] chartTypes = new string[]
+            {
+                "Лінійний",
+                "Плавна крива",
+                "Сходинки",
+                "Швидка лінія",
+                "Стовпчиковий",
+                "Гістограма",
+                "Точковий",
+                "Область",
+            };
+
+            this.cb_styleChart.Items.AddRange(chartTypes);
         }
         private async void bt_start_Click(object sender, EventArgs e)
         {
@@ -62,34 +71,65 @@ namespace WinFormProject
         {
             results = formService.GetListSortResult();
             chart_result.Series.Clear();
-            Series series = new Series("Операції");
+            Series series = new Series("Діаграма");
 
             switch (this.cb_styleChart.SelectedItem?.ToString())
             {
                 case "Лінійний":
                     series.ChartType = SeriesChartType.Line;
                     break;
+                case "Плавна крива":
+                    series.ChartType = SeriesChartType.Spline;
+                    break;
+                case "Сходинки":
+                    series.ChartType = SeriesChartType.StepLine;
+                    break;
+                case "Швидка лінія":
+                    series.ChartType = SeriesChartType.FastLine;
+                    break;
                 case "Стовпчиковий":
                     series.ChartType = SeriesChartType.Column;
+                    break;
+                case "Гістограма":
+                    series.ChartType = SeriesChartType.Bar;
                     break;
                 case "Точковий":
                     series.ChartType = SeriesChartType.Point;
                     break;
-                case "Гістограма":
-                    series.ChartType = SeriesChartType.Bar;
+                case "Область":
+                    series.ChartType = SeriesChartType.Area;
                     break;
                 default:
                     series.ChartType = SeriesChartType.Line;
                     break;
             }
 
+
+            Color[] colors = new Color[]
+                {
+                Color.Red, Color.Blue, Color.Green, Color.Orange,
+                Color.Purple, Color.Brown, Color.Cyan, Color.Magenta,
+                Color.YellowGreen, Color.SteelBlue
+            };
+
+            int colorIndex = 0;
             foreach (var result in results)
             {
-                series.Points.AddXY(result.AlgorithmName, result.OperationCount);
+                int pointIndex = series.Points.AddXY(result.AlgorithmName, result.OperationCount);
+
+                series.Points[pointIndex].Color = colors[colorIndex % colors.Length];
+                series.Points[pointIndex].Label = $"{result.OperationCount} операцій";
+                series.Points[pointIndex].ToolTip = $"{result.AlgorithmName}: {result.OperationCount} операцій";
+
+                colorIndex++;
             }
+
             chart_result.Series.Add(series);
             chart_result.ResetAutoValues();
 
         }
+
+     
+
     }
 }
