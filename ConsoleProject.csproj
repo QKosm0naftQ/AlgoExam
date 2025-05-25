@@ -43,19 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithm\Bubble_sort.cs" />
-    <Compile Include="Algorithm\Insertion_sort.cs" />
-    <Compile Include="Algorithm\Quick_sort.cs" />
-    <Compile Include="Algorithm\Selection_sort.cs" />
-    <Compile Include="Interface\ISortService.cs" />
-    <Compile Include="Interface\SortResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\OutPutLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1Test\LibraryModel.csproj">
+      <Project>{4c7599be-9375-4d58-96f3-3ac414ad470f}</Project>
+      <Name>LibraryModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

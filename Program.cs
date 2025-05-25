@@ -1,13 +1,13 @@
-﻿using AlgoExam.Algorithm;
-using AlgoExam.Interface;
-using AlgoExam.Service;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryModel;
+using LibraryModel.Algorithm;
+using LibraryModel.Service;
 
-namespace AlgoExam
+namespace ConsoleProject
 {
     internal class Program
     {
@@ -32,8 +32,8 @@ namespace AlgoExam
             int[] arr = new int[length];
             arr = GenerateRandomArray(length);
 
-            BubbleSort bubbleSort = new BubbleSort();
-            QuickSort quickSort = new QuickSort();
+            Bubble_sort bubbleSort = new Bubble_sort();
+            Quick_sort quickSort = new Quick_sort();
             Insertion_sort insertionSort = new Insertion_sort();
             Selection_sort selectionSort = new Selection_sort();
 
