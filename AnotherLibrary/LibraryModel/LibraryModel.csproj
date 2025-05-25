@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D1438963-0B05-4FE9-A6F3-5D6E1C36148E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>AlgoExam</RootNamespace>
-    <AssemblyName>AlgoExam</AssemblyName>
+    <ProjectGuid>{4C7599BE-9375-4D58-96F3-3AC414AD470F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClassLibrary1Test</RootNamespace>
+    <AssemblyName>ClassLibrary1Test</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,17 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Algorithm\Bubble_sort.cs" />
+    <Compile Include="Algorithm\Insertion_sort.cs" />
+    <Compile Include="Algorithm\Quick_sort.cs" />
+    <Compile Include="Algorithm\Selection_sort.cs" />
+    <Compile Include="Interface\ISortService.cs" />
+    <Compile Include="Interface\SortResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="AnotherLibrary\LibraryModel\LibraryModel.csproj">
-      <Project>{4c7599be-9375-4d58-96f3-3ac414ad470f}</Project>
-      <Name>LibraryModel</Name>
-    </ProjectReference>
+    <Compile Include="Service\FormService.cs" />
+    <Compile Include="Service\OutPutLine.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
