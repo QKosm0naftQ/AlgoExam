@@ -24,14 +24,14 @@ namespace WinFormProject
             results = new List<SortResult>();
             string[] chartTypes = new string[]
             {
-                "Лінійний",
-                "Плавна крива",
-                "Сходинки",
-                "Швидка лінія",
-                "Стовпчиковий",
-                "Гістограма",
-                "Точковий",
-                "Область",
+                "Line",
+                "Spline",
+                "Step Line",
+                "Fast Line",
+                "Column",
+                "Bar",
+                "Point",
+                "Area",
             };
 
             this.cb_styleChart.Items.AddRange(chartTypes);
@@ -71,32 +71,32 @@ namespace WinFormProject
         {
             results = formService.GetListSortResult();
             chart_result.Series.Clear();
-            Series series = new Series("Діаграма");
+            Series series = new Series("Chart");
 
             switch (this.cb_styleChart.SelectedItem?.ToString())
             {
-                case "Лінійний":
+                case "Line":
                     series.ChartType = SeriesChartType.Line;
                     break;
-                case "Плавна крива":
+                case "Spline":
                     series.ChartType = SeriesChartType.Spline;
                     break;
-                case "Сходинки":
+                case "Step Line":
                     series.ChartType = SeriesChartType.StepLine;
                     break;
-                case "Швидка лінія":
+                case "Fast Line":
                     series.ChartType = SeriesChartType.FastLine;
                     break;
-                case "Стовпчиковий":
+                case "Column":
                     series.ChartType = SeriesChartType.Column;
                     break;
-                case "Гістограма":
+                case "Bar":
                     series.ChartType = SeriesChartType.Bar;
                     break;
-                case "Точковий":
+                case "Point":
                     series.ChartType = SeriesChartType.Point;
                     break;
-                case "Область":
+                case "Area":
                     series.ChartType = SeriesChartType.Area;
                     break;
                 default:
@@ -118,8 +118,8 @@ namespace WinFormProject
                 int pointIndex = series.Points.AddXY(result.AlgorithmName, result.OperationCount);
 
                 series.Points[pointIndex].Color = colors[colorIndex % colors.Length];
-                series.Points[pointIndex].Label = $"{result.OperationCount} операцій";
-                series.Points[pointIndex].ToolTip = $"{result.AlgorithmName}: {result.OperationCount} операцій";
+                series.Points[pointIndex].Label = $"{result.OperationCount} operations";
+                series.Points[pointIndex].ToolTip = $"{result.AlgorithmName}: {result.OperationCount} operations";
 
                 colorIndex++;
             }
